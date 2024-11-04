@@ -1,0 +1,87 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "numberSerial": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "productName": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "numberSerial"
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "origin": {
+      "type": "enumeration",
+      "enum": [
+        "África",
+        "Asia",
+        "América",
+        "Europa"
+      ]
+    },
+    "isFeatured": {
+      "type": "boolean"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "discount": {
+      "type": "boolean"
+    },
+    "material": {
+      "type": "string"
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "Small-S",
+        "Large-L",
+        "Medium-M",
+        "Extra large-XL"
+      ]
+    },
+    "discountNumber": {
+      "type": "integer"
+    }
+  }
+}
