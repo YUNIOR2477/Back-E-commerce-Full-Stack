@@ -536,6 +536,7 @@ export interface ApiDiscountDiscount extends Struct.CollectionTypeSchema {
     singularName: 'discount';
     pluralName: 'discounts';
     displayName: 'Discount';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -544,6 +545,7 @@ export interface ApiDiscountDiscount extends Struct.CollectionTypeSchema {
     title: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     slug: Schema.Attribute.UID<'title'>;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
